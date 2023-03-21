@@ -1,6 +1,8 @@
 :root {
     --primary-color: #0a1128;
-    --white: #fff;
+    --white-color: #fff;
+    --light-gray-color: #eee;
+    --secondary-color: crimson;
     --gap: 3rem;
 }
 
@@ -16,7 +18,12 @@ html {
 body {
     font-family: 'Open Sans', sans-serif;
     font-size: 1.6rem;
-    color: var(--primary-color)
+    color: var(--primary-color);
+    line-height: 1.5;
+}
+
+a {
+    text-decoration: none;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -52,11 +59,11 @@ h6 {
     background-image: url(../img/main_bg.svg);
     background-size: cover;
     background-position: center center;
-    color: var(--white)
+    color: var(--white-color)
 }
 
 .main-content {
-    max-width: 1200px;
+    max-width: 120rem;
     margin: 0 auto;
     padding: var(--gap);
 }
@@ -66,5 +73,96 @@ h6 {
 }
 
 .white-bg {
-    background: var(--white);
+    background: var(--white-color);
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1;
+    border-bottom: 0.1rem solid var(--light-gray-color);
+}
+
+.menu-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.menu h1 {
+    font-size: 2.3rem;
+    color: var(--primary-color);
+}
+
+.menu h1 a {
+    color: inherit;
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+}
+
+.menu ul li a {
+    display: block;
+    padding: 2rem;
+    font-size: 1.8rem;
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+}
+
+.menu ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    width: 0;
+    height: 0.2rem;
+    background: var(--secondary-color);
+    transition: all 300ms ease-in-out;
+}
+
+.menu ul li a:hover::after {
+    width: 50%;
+    left: 25%;
+}
+
+.menu-spacing {
+    height: 6.5rem;
+}
+
+.intro-content {
+    position: relative;
+    top: -6.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: var(--gap);
+    height: 100vh;
+}
+
+.intro-text-content, .intro-img {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+}
+
+.intro-text-content h2 {
+    font-size: 5.5rem;
+    margin-bottom: 5rem;
+    text-transform: uppercase;
+    line-height: 1.1;
+}
+
+.intro-text-content p {
+    font-size: 1.9rem;
+}
+
+.intro-img img {
+    max-width: 100%;
+    height: auto;
 }
